@@ -1,0 +1,288 @@
+/* 全局初始化：撑满屏幕，无留白 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 让页面 100% 铺满手机屏幕 */
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.rule-tag {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+    /* 👇 下面这些就是还原参考图的关键 */
+    background: #edf3ff;      /* 浅蓝背景 */
+    color: #3b61cc;           /* 蓝色文字 */
+    padding: 10px 6px;        /* 内边距，让背景框包住文字 */
+    border-radius: 8px;       /* 圆角，还原参考图的柔和边角 */
+    font-size: 14px;           /* 字体大小，控制整体高度 */
+    line-height: 1.3;         /* 文字行高，让4个字间距均匀 */
+    white-space: nowrap;       /* 防止文字意外换行 */
+    text-align: center;        /* 文字在背景框里居中 */
+}
+/* 顶部导航：全屏盒子 */
+.nav {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 ;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.nav-back {
+    font-size: 29px;
+    color: #333;
+}
+
+.nav-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 17px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* 主体容器：全屏居中盒子 */
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 0 70px 0;
+    /* margin: 0 auto; */
+}
+
+/* 卡片盒子：撑满宽度、圆角、阴影 */
+.card {
+    width: 100%;
+    background: #fff;
+    /* border-radius: 4px; */
+    padding: 24px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+    /* text-align: left;
+     padding-left: 40px; */
+}
+.cardd {
+    width: 100%;
+    background: #fff;
+    /* 👇 只改这一行：上下右保留20px，左padding设为0 */
+    padding: 8px 20px 20px 0;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+/* 用户信息行 */
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* 圆形头像 */
+    object-fit: cover; /* 图片不变形，自动裁剪 */
+    /* 去掉原来的背景色：background: #eee; */
+}
+
+.user-title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.status {
+    padding: 3px 8px;
+    /* background: #e6f7ee; */
+    color: #6ec6a9;
+    border-radius: 10px;
+    font-size: 14px;
+    /* margin-right: 12px; */
+}
+
+/* 卡片标题 */
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    text-align: left;
+     padding-left: 0px;
+    /* border-bottom: 1px solid #eee; */
+}
+
+/* 列表行盒子：左右分布，撑满卡片 */
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 9px 0;
+    text-align: left;
+     padding-left: 0px;
+    /* border-bottom: 1px solid #f5f5f5; */
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 12px;
+    width: 100px;
+    color: rgba(155,155,155,100);
+    /* text-align: right;
+     padding-right: 40px; */
+}
+
+.value {
+    /* flex: 1; */
+    font-size: 12px;
+    color: #333;
+    text-align: right;
+    max-width: 60%;
+}
+.valuea,.valuee {
+    color: rgba(59,97,204,100);
+    font-size: 12px;
+}
+.arrow {
+    /* 画一个向下的箭头 */
+    width: 8px;
+    height: 8px;
+    border-left: 1.5px solid #666;  /* 线条粗细，改成2px会更粗 */
+    border-bottom: 1.5px solid #666;
+    transform: rotate(-45deg); /* 调整角度，变成向下箭头 */
+    margin-left: 6px;
+    margin-right: 12px;
+}
+/* 画向左箭头（和参考图线条一致） */
+.aaa {
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid #333;
+    border-left: 2px solid #333;
+    transform: translateY(-50%) rotate(-45deg);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+}
+
+/* 画关闭叉号（和参考图线条一致） */
+.bbb {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    /* right: 15px; */
+    margin-left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bbb::before, .bbb::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    left: 0;   左:0;
+}
+.bbb::before {
+    transform: rotate(45deg);变换:旋转(45度);
+}
+.bbb::after {   ．{后bbb::
+    transform: rotate(-45deg);变换:旋转(-45度);
+}
+.value1 {   ．value1 {
+    color: rgba(164,164,164,100);颜色:rgba (164164164100);
+    font-size: 12px;   字体大小:12 px;
+    /* color: #333; */   /* color: #333；* /
+       text-align:正确;text-align: right;
+    max-width: 60%;
+}
+/* 底部固定栏 */
+.footer-bar {   ．footer-bar {
+    position: fixed; /* 关键：固定定位，不随页面滚动 */
+    bottom: 0;   底部:0;
+    left: 0;   左:0;
+    right: 0;   右:0;
+    height: 60px; /* 底部栏高度，可调整 */
+    background: #fff; /* 背景色，避免透明挡住内容 */
+    display: flex;   显示:flex;
+    align-items: center; /* 内容垂直居中 */
+    padding: 0 16px;   填充：0 16px；
+    border-top: 1px solid #eee; /* 顶部细线，和页面区分开 */
+}
+
+/* 更多按钮（图标+文字上下排列） */
+.more-btn {   ．more-btn——
+    display: flex;   显示:flex;
+    flex-direction: column;   flex-direction:列;
+    align-items: center;   对齐项目:中心;
+    font-size: 12px;   字体大小:12 px;
+    color: #333;   颜色:# 333;
+}
+.more-btn .icon {   ．more-btn。图标{
+    font-size: 18px; /* 图标大小 */
+    margin-bottom: 2px;
+}
+
+/* 转发按钮 */
+.forward-btn {
+    flex: 1; /* 占满剩余空间 */
+    margin-left: 12px;
+    border: 1px solid #ccc;   边框：1px实线#ccc；
+    border-radius: 8px; /* 圆角 */
+    padding: 8px 0;   Padding: 8px 0；
+    text-align: center;   text-align:中心;
+    font-size: 14px;   字体大小:14 px;
+    color: #666;   颜色:# 666;
+}
+.more-btn {   ．more-btn——
+    display: flex;   显示:flex;
+    flex-direction: column;   填充：0    flex-direction:列;16px；
+    align-items: center;   对齐项目:中心;
+    font-size:    字体大小:12 px;12px;
+    color: #333;   颜色:# 333;
+}
+
+/* 图标容器：控制三条线垂直居中、间距均匀 */
+.more-btn .icon {   ．more-btn。图标{
+    display: flex;   显示:flex;
+    flex-direction: column;   flex-direction:列;
+    align-items: center; /* 关键！让每条线居中，形成上宽下窄的效果 */
+    gap: 4px; /* 三条线之间的间距，可微调 */
+    margin-bottom: 2px;
+}
+
+/* 通用线条样式 */
+.more-btn .line {
+    height: 2px; /* 线条粗细，改成3px会更粗 */
+    background-color: #333;
+    border-radius: 1px; /* 线条加圆角，和案例质感一致 */
+}
+
+/* 从上到下，宽度依次递减 */
+.more-btn .line-1 { width: 18px; } /* 最上面最长 */
+.more-btn .line-2 { width: 14px; } /* 中间次之 */
+.more-btn .line-3 { width: 8px; }  /* 最下面最短 */
