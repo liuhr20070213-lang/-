@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑",sans-serif;
+}
+body {
+    background: #f5f6f8;
+    font-size: 15px;
+}
+
+/* ---------------- 顶部导航（修正版） ---------------- */
+.top-nav {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background: #fff;
+    padding: 0 15px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+/* 左箭头：单独拉长，叉号保持正常 */
+.back-icon {
+    font-size: 25px;
+    color: #18181b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    /* width: 32px;
+    height: 32px; */
+    /* 水平拉长箭头，和原图扁长效果一致 */
+    transform: scaleY(1.2);
+}
+.close-icon {
+    font-size: 25px;
+    color: #18181b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    width: 40px;
+    height: 32px;
+    transform: scaleY(1.2);
+}
+.nav-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ---------------- 请假规则 + 病假 同行（核心修正） ---------------- */
+/* ---------------- 请假规则 + 病假 同行（左对齐最终版） ---------------- */
+.head-row {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background: #fff;
+    padding: 0; /* 🔥 关键：去掉左侧15px内边距，实现左对齐 */
+    border-bottom: 1px solid #eee;
+    gap: 16px;
+}
+/* 请假规则：竖排+蓝色背景+圆角 */
+.rule-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: #4663c3;
+    font-size: 12px;
+    background-color: #e7eefb;
+    padding: 8px 6px;
+    border-radius: 8px;
+    line-height: 1.1;
+    border-radius: 0 12px 12px 0;
+    /* margin-left: 15px; 🔥 给规则标签加左侧小间距，和页面统一对齐 */
+}
+/* 病假：放大字体，和原图对齐 */
+.leave-type-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #18181b;
+}
+
+/* ---------------- 主体表单区域 ---------------- */
+.main-box {
+    padding-top: 10px;
+}
+.form-block {
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    /* margin-bottom: 10px; */
+}
+.block-title {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #f2f2f2;
+    font-weight: normal;
+}
+.form-item {
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.form-item:last-child {
+    border-bottom: none;
+}
+.lab {
+    width: 110px;
+    color: #333;
+}
+.star {
+    color: red;
+}
+.form-ipt {
+    flex: 1;
+    border: none;
+    outline: none;
+    text-align: right;
+    font-size: 15px;
+    color: #666;
+    background: transparent;
+}
+.arrow {
+    color: #ccc;
+    margin-left: 5px;
+}
+
+/* 请假原因多行文本 */
+.text-item {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.text-item textarea {
+    width: 100%;
+    margin-top: 5px;
+    border: none;
+    outline: none;
+    min-height: 60px;
+    resize: none;
+    font-size: 15px;
+}
+.word-num {
+    width: 100%;
+    text-align: right;
+    color: #999;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* 上传材料 */
+.upload-item {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.upload-wrap {
+    margin-top: 8px;
+}
+.upload-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    border: 1px dashed #cccccc;
+    border-radius: 5px;
+    color: #999;
+    cursor: pointer;
+}
+.plus {
+    font-size: 26px;
+}
+.up-tips {
+    font-size: 13px;
+    color: #999;
+    margin-top: 6px;
+}
+
+/* 定位位置 */
+/* 定位位置（修改后：可输入样式） */
+.pos-item {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.pos-info {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    width: 100%;
+}
+/* 位置输入框：模拟原来的蓝色文字效果 */
+.pos-text-input {
+    flex: 1; /* 占满可用空间，和“重新定位”按钮并排 */
+    color: #409eff; /* 和截图蓝色文字完全一致 */
+    font-size: 14px;
+    border: none; /* 去掉默认边框 */
+    outline: none; /* 去掉聚焦边框 */
+    background: transparent; /* 背景透明，和页面融为一体 */
+}
+.re-pos {
+    color: #409eff;
+    margin-left: 8px;
+    font-size: 14px;
+    white-space: nowrap; /* 防止“重新定位”文字换行 */
+}
+/* 抄送人 */
+.add-people {
+    width: 70px;
+    height: 70px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #999;
+    margin: 12px 15px;
+}
+.cc-tip {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 13px;
+    color: #666;
+}
+.edit-btn {
+    color: #409eff;
+}
+.empty-tip {
+    text-align: center;
+    padding: 15px 0;
+    color: #999;
+    font-size: 13px;
+}
+
+/* 提交按钮 */
+.submit-box {
+    margin-top: 20px;
+}
+.submit-btn {
+    width: 100%;
+    height: 44px;
+    background: #409eff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+}

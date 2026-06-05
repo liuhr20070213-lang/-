@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>用户登录</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet"  href="./登陆.css" />
+    <style>
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<div id="particles-js"></div>
+
+<div class="login">
+    <h2>用户登录</h2>
+    <div class="login_box">
+        <input type="text" name='name' id='name' required  />
+        <label for="name" >姓名（网页中的姓名）</label>
+    </div>
+    <div class="login_box">
+        <input type="password" name='pwd' id='pwd' required="required">
+        <label for="pwd">密码</label>
+    </div>
+    <a href="javascript:void(0)" id="loginBtn">
+        登录
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+</div>
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const pwdInput = document.getElementById('pwd');
+const nameInput = document.getElementById('name');
+
+loginBtn.addEventListener('click', function() {
+    const password = pwdInput.value.trim();
+    const userName = nameInput.value.trim();
+    
+    if(password === 'liu88888888' && userName) {
+        localStorage.setItem('userName', userName);
+        alert('登录成功！');
+        location.href = './首页.html';
+    }else{
+        alert('密码错误或姓名不能为空！请输入正确密码请咨询Raanan');
+        pwdInput.value = '';
+        pwdInput.focus();
+    }
+});
+
+// 稳定不翻车粒子配置
+particlesJS("particles-js",{
+  particles: {
+    number: { value: 90, density: { enable: true, value_area: 800 } },
+    color: { value: "#03e9f4" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5, random: false },
+    size: { value: 3, random: true },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#03e9f4",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      random: true,
+      straight: false,
+      out_mode: "out",
+      bounce: false
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 160, line_linked: { opacity: 1 } },
+      push: { particles_nb: 15 }
+    }
+  },
+  retina_detect: true
+});
+</script>
+</body>
+</html>

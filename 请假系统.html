@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>请假详情</title>
+    <link rel="stylesheet" href="./请假系统.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+<div class="nav">
+    <a href="./首页.html"><span class="aaa"></span></a>
+    <a href="./首页.html"><span class="bbb"></span></a>
+    <div class="nav-title">请假详情</div>
+</div>
+
+<div class="container">
+    <div class="cardd">
+        <div class="rule-tag">请假规则</div>
+        <div class="user-box">
+            <img src="./image.png.png" class="avatar" alt="头像">
+            <div class="user-title" id="userTitle">(权威)的病假</div>
+            <div class="status">已通过</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">请假内容</div>
+        <div class="item">
+            <span class="label">请假学生</span>
+            <span class="valuea" id="studentName">(权威)</span>
+        </div>
+        <div class="item">
+            <span class="label">开始时间</span>
+            <span class="value" id="startTime">2026-04-07 12:44</span>
+        </div>
+        <div class="item">
+            <span class="label">结束时间</span>
+            <span class="value" id="endTime">2028-04-08 12:44</span>
+        </div>
+        <div class="item">
+            <span class="label">请假时长</span>
+            <span class="value" id="timeLength">2年1天</span>
+        </div>
+        <div class="item">
+            <span class="label">请假原因</span>
+            <span class="value" id="reason">感冒了，嗓子不舒服，头有点晕</span>
+        </div>
+        <div class="item">
+            <span class="label">证明材料</span>
+            <span class="value">-</span>
+        </div>
+        <div class="item">
+            <span class="label">发送位置</span>
+            <span class="valuee" id="position">中国河北省石家庄市桥西区振头街道汇安路</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">请假去向</div>
+        <div class="item">
+            <span class="label">是否离校</span>
+            <span class="value" id="isLeave">否</span>
+        </div>
+    </div>
+
+    <!-- 审批流程 -->
+    <div class="card collapse-item">
+        <div class="card-title collapse-header">
+            审批流程
+            <span class="arrow"></span>
+        </div>
+        <div class="collapse-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot pending"></div>
+                    <div class="timeline-content">
+                        <div class="step-title">发起申请</div>
+                        <div class="step-info">
+                            <div class="avatar-wrap">
+                                <img src="./image.png.png" class="step-avatar" alt="头像">
+                            </div>
+                            <div class="step-text">
+                                <div class="step-name" id="stepName">(权威)</div>
+                                <div class="step-dept">人工智能学院</div>
+                            </div>
+                            <div class="step-time" id="step-time">2026-04-07 12:44</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot approved"></div>
+                    <div class="timeline-content">
+                        <div class="step-title">审批人</div>
+                        <div class="step-info">
+                            <div class="avatar-wrap">
+                                <img src="./image.png.png" class="step-avatar" alt="头像">
+                                <div class="step-status">已同意</div>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-name">陈老师</div>
+                                <div class="step-dept">人工智能学院 - 辅导员</div>
+                            </div>
+                            <div class="step-time" id="step-timee">2026-04-07 15:20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">销假内容</div>
+        <div class="item">
+            <span class="label">销假方式</span>
+            <span class="value">学生定位销假</span>
+        </div>
+        <div class="item">
+            <span class="label">提交人</span>
+            <span class="value" id="submitPerson">111</span>
+        </div>
+        <div class="item">
+            <span class="label">提交时间</span>
+            <span class="value"  id="submitTime">2026-04-07 19:00</span>
+        </div>
+        <div class="item">
+            <span class="label">销假材料</span>
+            <span class="value">-</span>
+        </div>
+        <div class="item">
+            <span class="label">销假定位</span>
+            <span class="value1">未授权定位</span>
+        </div>        
+    </div>
+</div>
+
+<div class="footer-bar">
+    <div class="more-btn">
+        <div class="icon">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </div>
+        <span class="text">更多</span>
+    </div>
+    <div class="forward-btn">续假</div>
+</div>
+
+<script>
+// 审批流程折叠展开
+const header = document.querySelector(".collapse-header")
+header.addEventListener('click', () => {
+    header.classList.toggle('active');
+});
+
+// 时间格式化 去除T
+function formatIsoTime(isoStr) {
+    if (!isoStr) return '';
+    return new Date(isoStr).toLocaleString('zh-CN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).replace(/\//g, '-');
+}
+
+// 时间加减小时
+function addHours(isoStr, hours) {
+    if (!isoStr) return '';
+    const date = new Date(isoStr);
+    date.setHours(date.getHours() + hours);
+    return formatIsoTime(date.toISOString());
+}
+
+window.onload = function(){
+    // 获取登录填写的姓名
+    let userName = localStorage.getItem('userName') || '未知用户';
+    // 替换所有权威位置
+    document.getElementById('userTitle').innerText = userName + "的病假";
+    document.getElementById('studentName').innerText = userName;
+    document.getElementById('stepName').innerText = userName;
+    document.getElementById('submitPerson').innerText = userName;
+
+    // 读取请假表单数据
+    let leaveData = localStorage.getItem('leaveData');
+    if(!leaveData) return;
+    let data = JSON.parse(leaveData);
+
+    // 填充请假信息
+    document.getElementById('startTime').innerText = formatIsoTime(data.startTime);
+    document.getElementById('endTime').innerText = formatIsoTime(data.endTime);
+    document.getElementById('timeLength').innerText = data.timeLength;
+    document.getElementById('reason').innerText = data.reason;
+    document.getElementById('position').innerText = data.position || "无";
+    document.getElementById('isLeave').innerText = data.isLeave;
+    document.getElementById('submitTime').innerText = formatIsoTime(data.startTime);
+
+    // ✅ 核心修正：发起时间 = 开始时间 - 1小时
+    document.getElementById('step-time').innerText = addHours(data.startTime, -1);
+    // 审批时间 = 开始时间
+    document.getElementById('step-timee').innerText = formatIsoTime(data.startTime);
+}
+</script>
+</body>
+</html>
