@@ -4,6 +4,8 @@
 [![JavaScript ES6](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](https://es6.ruanyifeng.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 > 项目释义：**Learning-through = 在复刻实战中吃透前端，借学习通项目完成全链路前端工程落地**
+> 
+密码：liu88888888
 
 ## 📖 项目简介
 本项目**纯原生前端无框架、零第三方重型库**，1:1视觉&交互复刻超星学习通PC+移动端全核心业务，摒弃新手堆砌代码陋习，以工程化规范拆分目录、模块化管理样式与逻辑，是一套面向前端进阶实战的商用级页面复刻项目。
